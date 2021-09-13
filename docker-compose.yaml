@@ -65,4 +65,20 @@ services:
       restart_policy:
         condition: on-failure
 
+  usdtgbp:
+    build:
+      context: .
+    container_name: USDTGBP
+    volumes:
+      - ./market/USDTGBP/config.json:/app/config.json
+      - ./market/USDTGBP/pycryptobot.log:/app/pycryptobot.log
+      - ./market/USDTGBP/graphs:/app/graphs
+      - ./market/USDTGBP/keys/coinbasepro.key:/app/keys/coinbasepro.key
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    deploy:
+      restart_policy:
+        condition: on-failure
+
         
