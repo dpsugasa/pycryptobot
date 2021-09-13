@@ -1,49 +1,68 @@
-version: "3.9"
+version: "3.7"
 
 services:
-  pycrypto:
-      build:
-        context: .
-      container_name: pycrypto
-      volumes:
-        - ./market/template/config.json:/app/config.json
-        - ./market/template/pycryptobot.log:/app/pycryptobot.log
-        - ./market/template/graphs:/app/graphs
-        - /etc/localtime:/etc/localtime:ro
-      environment:
-        - PYTHONUNBUFFERED=1
-      deploy:
-        restart_policy:
-          condition: on-failure
+  btcgbp:
+    build:
+      context: .
+    container_name: BTCGBP
+    volumes:
+      - ./market/BTCGBP/config.json:/app/config.json
+      - ./market/BTCGBP/pycryptobot.log:/app/pycryptobot.log
+      - ./market/BTCGBP/graphs:/app/graphs
+      - ./market/BTCGBP/keys/coinbasepro.key:/app/keys/coinbasepro.key
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    deploy:
+      restart_policy:
+        condition: on-failure
 
-#  Different markets can be specified as below
-#
-#  BTCEUR:
-#    build:
-#      context: .
-#    container_name: BTCEUR
-#    volumes:
-#      - ./market/BTCEUR/config.json:/app/config.json
-#      - ./market/BTCEUR/pycryptobot.log:/app/pycryptobot.log
-#      - ./market/BTCEUR/graphs:/app/graphs
-#      - /etc/localtime:/etc/localtime:ro
-#    environment:
-#      - PYTHONUNBUFFERED=1
-#    deploy:
-#      restart_policy:
-#        condition: on-failure
-#
-#  ETHEUR:
-#    build:
-#      context: .
-#    container_name: ETHEUR
-#    volumes:
-#      - ./market/ETHEUR/config.json:/app/config.json
-#      - ./market/ETHEUR/pycryptobot.log:/app/pycryptobot.log
-#      - ./market/ETHEUR/graphs:/app/graphs
-#      - /etc/localtime:/etc/localtime:ro
-#    environment:
-#      - PYTHONUNBUFFERED=1
-#    deploy:
-#      restart_policy:
-#        condition: on-failure
+  ethgbp:
+    build:
+      context: .
+    container_name: ETHGBP
+    volumes:
+      - ./market/ETHGBP/config.json:/app/config.json
+      - ./market/ETHGBP/pycryptobot.log:/app/pycryptobot.log
+      - ./market/ETHGBP/graphs:/app/graphs
+      - ./market/ETHGBP/keys/coinbasepro.key:/app/keys/coinbasepro.key
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  adagbp:
+    build:
+      context: .
+    container_name: ADAGBP
+    volumes:
+      - ./market/ADAGBP/config.json:/app/config.json
+      - ./market/ADAGBP/pycryptobot.log:/app/pycryptobot.log
+      - ./market/ADAGBP/graphs:/app/graphs
+      - ./market/ADAGBP/keys/coinbasepro.key:/app/keys/coinbasepro.key
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+  solgbp:
+    build:
+      context: .
+    container_name: SOLGBP
+    volumes:
+      - ./market/SOLGBP/config.json:/app/config.json
+      - ./market/SOLGBP/pycryptobot.log:/app/pycryptobot.log
+      - ./market/SOLGBP/graphs:/app/graphs
+      - ./market/SOLGBP/keys/coinbasepro.key:/app/keys/coinbasepro.key
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+        
